@@ -1,0 +1,10 @@
+h1,h5,h4{
+         color: red;
+         font-size: 2cm;
+         margin-bottom: 30px;
+         margin-right:10px;
+        }
+.img-responsive{
+                max-width: 100px;
+                max-height: 100px;
+               }

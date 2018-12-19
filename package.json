@@ -1,0 +1,33 @@
+{
+  "name": "personality",
+  "version": "1.0.0",
+  "description": "Analyze and retrieve personality insights",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sandeep-Murugadas/Personality.git"
+  },
+  "keywords": [
+    "personality",
+    "insights"
+  ],
+  "author": "Sandeep Murugadas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sandeep-Murugadas/Personality/issues"
+  },
+  "homepage": "https://github.com/Sandeep-Murugadas/Personality#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "shebang-loader": "0.0.1",
+    "watson-developer-cloud": "^3.15.0",
+    "webpack": "^4.27.1",
+    "webpack-dev-middleware": "^3.4.0"
+  }
+}

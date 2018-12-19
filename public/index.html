@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.progress-bar" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <link href="./styles.progress-bar" rel="stylesheet" type="text/progress-bar"/>
+    <link href="./styles.css" rel="stylesheet" type="text/css"/>
+    <style>
+        * {box-sizing: border-box}
+        .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: red;
+        color: white;
+        text-align: center;
+        }
+        #myDiv {
+        display: none;
+        text-align: center;
+        }
+        .abc {
+        width: 100%;
+        background-color: #ddd;
+        }
+        .skills {
+        text-align: right;
+        padding: 5px;
+        color: rgb(252, 248, 248);
+        }
+        .progress-bar {background-color:#f01414; text-shadow: 1px 1px 1px #696969;}
+        .progress-bar.black {background-color:#2b2828;}
+    </style>
+</head>
+<body class="container">
+    <div class="row">
+        <div class="row col-md-3">
+            <img src= "./image/perficient_logo1.jpg" class="rounded float-left" style="height: 180px;margin-top: 15px;display: inline-block;"/>
+        </div>
+        <div class="row col-md-9">
+            <div class="logo-desc">
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold font-size=6">Personality Insight</h5>
+                    <p class="card-text">Gain insight into how and why people think, act, and feel the way they do. This service applies linguistic analytics and personality theory to infer attributes from a person's unstructured text.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist" style="margin-top: 15px;">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Body Of Text</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Resume</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="form-group" style="padding: 15px 0;">
+                <label for="exampleFormControlTextarea1">Enter Text</label>
+                <textarea class="form-control" id="textArea1" rows="5" required></textarea>
+            </div>
+            <div class="row">
+                <div class="col-sm-4  offset-sm-8" style="text-align: right;">
+                    <i id="loader" class="fa fa-circle-o-notch fa-spin pull-right" style=" display:none;font-size: 28px;margin-top: 5px;color: #28a745;" ></i>
+                    <button type="submit" class=" btn btn-success pull-right" id="submitOne">Analyze</button>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <form style="padding: 15px 0;">
+                <input type="file" id="myFile" required>
+                <div class="row">
+                    <div class="col-sm-4  offset-sm-8" style="text-align: right;">
+                        <button type="submit" class=" btn btn-success pull-right">Analyze</button>
+                    </div>
+                    </div
+            </form>
+            </div>                            
+        </div>
+        <section id="results" style=" display:none;padding-bottom: 200px;">
+            <h1 class="font-weight-bold">
+                <font color="red">
+                Results
+                </font>
+            </h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <h2><u class="font-weight-bold" style="color:red">Personality</u></h2>
+                    <div class="list-data" id="Openness">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="Openness to experience. Higher: Intellectually curious, emotionally-aware, sensitive to beauty and willing to try new things. Lower: Preferring the plain, straightforward, and obvious over the complex, ambiguous, and subtle."> Openness </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Agreeableness">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="Higher: Value getting along with others. They have a more optimistic view of human nature. Lower: Value self interests over others. They are more skeptical of others' motives."> Agreeableness </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Conscientiousness">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="Higher: More self-disciplined, dutiful, or aiming for achievement against measures or outside expectations. Lower: More likely to prefer the spontaneous over the planned."> Conscientiousness </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Extraversion">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="Higher: More energetic and pronounced engagement with the external world. Likes high group visibility, talking, and asserting themselves. Lower: Needs less stimulation and are more independent of their social world. It does not mean they are shy, un-friendly, or antisocial."> Extraversion </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Emotionalrange">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="This demo cannot diagnose a mental illness. Higher: More likely to have negative emotions or get upset. It could mean they are going through a tough time. Lower: More calm and less likely to get upset. It does not mean they are positive, or happy people."> Emotional Range </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h2><u class="font-weight-bold" style="color:red">Needs</u></h2>
+                    <div class="list-data" id="Challenge">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="A desire to achieve, succeed, compete, or pursue experiences that test one's abilities."> Challenge </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar black" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Stability">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="A need for the sensible, tried and tested, with a good track record and a known history."> Stability </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar black" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Ideal">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="A desire to satisfy one's idea of perfection in a lifestyle or experience, oftentimes seen as pursuing a sense of community."> Ideal </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar black" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Structure">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="A need for organization, planning, and things that have a clear purpose."> Structure </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar black" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Excitement">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="A need to pursue experiences or lead a lifestyle that arouses enthusiasm and eagerness."> Excitement </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar black" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Liberty">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="A need to escape, a desire for new experiences, new things."> Liberty </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar black" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Harmony">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="A need to appreciate or please other people, their viewpoints, and feelings."> Harmony </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar black" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Practicality">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="A desire for getting the job done, skill, and efficiency."> Practicality </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar black" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Love">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="Social contact, whether one-to-one or one-to-many."> Love </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar black" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Curiosity">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="A need to pursue experiences that foster learning, exploration, and growth."> Curiosity </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar black" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Self-expression">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="A desire to discover and assert one's identity."> Self-expression </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar black" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Closeness">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="A need to nurture or be nurtured; a feeling of belonging."> Closeness </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar black" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h2><u class="font-weight-bold" style="color:red">Values</u></h2>
+                    <div class="list-data" id="Opennesstochange">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="Respect, commitment, and acceptance of the customs and ideas that one's culture and/or religion provides."> Tradition </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Self-transcendence">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="Personal success through demonstrating competence according to social standards."> Achievement </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Self-enhancement">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="Pleasure or sensuous gratification for oneself."> Taking pleasure in life </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Conservation">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="Excitement, novelty, and challenge in life."> Stimulation </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                    <div class="list-data" id="Hedonism">
+                        <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="Preserving and enhancing the welfare of those with whom one is in frequent personal contact."> Helping others </p>
+                        <div class="progress" style="height: 25px">
+                            <div class="skills progress-bar" style="width: 25%" aria-valuemin="0" aria-valuemax="100">80%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="footer">
+        <p>© 2018 Perficient, Inc. All rights reserved.</p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        
+        function showPage() {
+          document.getElementById("loader").style.display = "none";
+          document.getElementById("myDiv").style.display = "block";
+        }
+
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip(); 
+        });
+    </script>
+    <script src='/bundle.js'></script>
+</body>
+</html>
