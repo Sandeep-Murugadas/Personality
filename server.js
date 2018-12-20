@@ -48,13 +48,10 @@ app.post('/api/getProfile', function(req,res){
         },
         function(error,profile){
             if(error){
-                return res.status(500).send(error)
-            }else{
+                return res.status(200).send(error)
+            } else {
                 return res.status(200).send(JSON.stringify(profile))
             }
         })
     }
-}) 
-
-
-
+})
