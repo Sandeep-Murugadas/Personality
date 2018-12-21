@@ -58,3 +58,47 @@ function getPersonality()
     })
 }
 
+function getPersonality1(){
+    //resultssection.style.display = "none";
+    console.log(e);
+   /* var resumefile = JSON.stringify(myFile.value);
+    fetch('/api/getProfile',{
+        method:'POST',
+        body:text
+    }).then(function(response){
+        return response.json()
+    }).then(function(datas){
+        if( datas.error ){
+            loader.style.display = "none";
+            errormessage.style.display = "block";
+            errormessage.style.color = "Red";
+            errormessage.innerText = datas.error;
+        } else{
+            resultssection.style.display = "block";
+            loader.style.display = "none";
+
+        datas.personality.map( ( data, index ) => {
+            var elem = document.getElementById( data.name.replace(/\s/g,''))
+            elem.childNodes[3].childNodes[1].style.width = Math.round( data.percentile * 100 ) + '%'
+            elem.childNodes[3].childNodes[1].innerText = Math.round( data.percentile * 100 ) + '%'
+        })
+        datas.needs.map( ( data, index ) => {
+            var elem = document.getElementById( data.name.replace(/\s/g,''))
+            elem.childNodes[3].childNodes[1].style.width = Math.round( data.percentile * 100 ) + '%'
+            elem.childNodes[3].childNodes[1].innerText = Math.round( data.percentile * 100 ) + '%'
+        })
+        datas.values.map( ( data, index ) => {
+            var elem = document.getElementById( data.name.replace(/\s/g,''))
+            elem.childNodes[3].childNodes[1].style.width = Math.round( data.percentile * 100 ) + '%'
+            elem.childNodes[3].childNodes[1].innerText = Math.round( data.percentile * 100 ) + '%'
+        })
+        
+        }
+        
+        if(window.location.hash){
+            window.location.href = window.location.href
+        } else {
+            window.location.href += "#results"
+        }
+    })
+}
