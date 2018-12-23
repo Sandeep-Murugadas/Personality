@@ -23,11 +23,14 @@
   "homepage": "https://github.com/Sandeep-Murugadas/Personality#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "docx-extractor": "^1.1.4",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "shebang-loader": "0.0.1",
+    "textract": "^2.4.0",
     "watson-developer-cloud": "^3.15.0",
     "webpack": "^4.27.1",
-    "webpack-dev-middleware": "^3.4.0"
+    "webpack-dev-middleware": "^3.4.0",
+    "word-extractor": "^0.1.4"
   }
 }

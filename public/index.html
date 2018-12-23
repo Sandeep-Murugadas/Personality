@@ -62,7 +62,7 @@
             <form id="textform">
             <div class="form-group" style="padding: 15px 0;">
                 <label for="exampleFormControlTextarea1">Enter Text(Minimum 100 Words)</label>
-                <textarea class="form-control" id="textArea1" rows="5" required></textarea>
+                <textarea class="form-control" id="textArea1" rows="5" minlength="100" required></textarea>
             </div>
             <div class="row">
                 <div class="col-sm-4  offset-sm-8" style="text-align: right;">
@@ -74,11 +74,12 @@
         </form>
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <form style="padding: 15px 0;">
-                <input type="file" id="myFile" required>
+            <form style="padding: 15px 0;" id="pdf-form">
+                <input type="file" id="myFile1" required>
                 <div class="row">
                     <div class="col-sm-4  offset-sm-8" style="text-align: right;">
-                        <button type="submit" class=" btn btn-success pull-right">Analyze</button>
+                            <i id="loader" class="fa fa-circle-o-notch fa-spin pull-right" style=" display:none;font-size: 28px;margin-top: 5px;color: #28a745;" ></i>
+                        <button type="submit" class=" btn btn-success pull-right" id="resume-button">Analyze</button>
                     </div>
                     </div
             </form>
@@ -233,6 +234,27 @@
                         </div>
                     </div>
                 </div>
+                <!-- <div class="col-md-3">
+                        <h2><u class="font-weight-bold" style="color:red">Additional Insights</u></h2>
+                        <div class="list-data" id="Authority-challenging">
+                            <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="Respect, commitment, and acceptance of the customs and ideas that one's culture and/or religion provides."> Authority challenging </p>
+                            <div class="progress" style="height: 25px">
+                                <div class="skills progress-bar" style="width: 0%" aria-valuemin="0" aria-valuemax="100">0%</div>
+                            </div>
+                        </div>
+                        <div class="list-data" id="Achievementstriving">
+                            <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="Personal success through demonstrating competence according to social standards."> Achievement striving </p>
+                            <div class="progress" style="height: 25px">
+                                <div class="skills progress-bar" style="width: 0%" aria-valuemin="0" aria-valuemax="100">0%</div>
+                            </div>
+                        </div>
+                        <div class="list-data" id="Trust">
+                            <p class="font-weight-bold"  style="font-size: 14px;margin-bottom: 5px;" href="#" data-toggle="tooltip" title="Pleasure or sensuous gratification for oneself."> Trust </p>
+                            <div class="progress" style="height: 25px">
+                                <div class="skills progress-bar" style="width: 0%" aria-valuemin="0" aria-valuemax="100">0%</div>
+                            </div>
+                        </div>
+                    </div> -->
             </div>
         </section>
     </div>
@@ -252,6 +274,6 @@
             $('[data-toggle="tooltip"]').tooltip(); 
         });
     </script>
-    <script src='/bundle.js'></script>
+   <script src='/bundle.js'></script>
 </body>
 </html>

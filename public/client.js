@@ -3,6 +3,10 @@ var txtArea = document.getElementById('textArea1');
 var resultssection = document.getElementById('results');
 var loader = document.getElementById("loader");
 var errormessage = document.getElementById("errormessage");
+var pdfAnalyse = document.getElementById('pdf-form')
+var WordExtractor = require('word-extractor');
+//var textract = require('textract');
+// var myFile = document.getElementById('myFile1');
 
 if(window.location.hash ) window.location.href = window.location.href.replace('#results', '')
 
@@ -12,6 +16,12 @@ btn.onsubmit = function(e)
     loader.style.display = "block";
     errormessage.style.display = "none";
     e.preventDefault()
+}
+
+pdfAnalyse.onsubmit = function(e){
+    //alert('clicked');
+    // getPersonality1(e);
+    e.preventDefault();
 }
 function getPersonality()
 {
@@ -47,6 +57,21 @@ function getPersonality()
             elem.childNodes[3].childNodes[1].style.width = Math.round( data.percentile * 100 ) + '%'
             elem.childNodes[3].childNodes[1].innerText = Math.round( data.percentile * 100 ) + '%'
         })
+        // datas.personality.openness.Authority-challenging.map( ( data, index ) => {
+        //     var elem = document.getElementById( data.name.replace(/\s/g,''))
+        //     elem.childNodes[3].childNodes[1].style.width = Math.round( data.percentile * 100 ) + '%'
+        //     elem.childNodes[3].childNodes[1].innerText = Math.round( data.percentile * 100 ) + '%'
+        // })
+        // datas.personality.Conscientiousness.Achievement striving.map( ( data, index ) => {
+        //     var elem = document.getElementById( data.name.replace(/\s/g,''))
+        //     elem.childNodes[3].childNodes[1].style.width = Math.round( data.percentile * 100 ) + '%'
+        //     elem.childNodes[3].childNodes[1].innerText = Math.round( data.percentile * 100 ) + '%'
+        // })
+        // datas.personality.Agreeableness.Trust.map( ( data, index ) => {
+        //     var elem = document.getElementById( data.name.replace(/\s/g,''))
+        //     elem.childNodes[3].childNodes[1].style.width = Math.round( data.percentile * 100 ) + '%'
+        //     elem.childNodes[3].childNodes[1].innerText = Math.round( data.percentile * 100 ) + '%'
+        // })
         
         }
         
@@ -58,10 +83,19 @@ function getPersonality()
     })
 }
 
-function getPersonality1(){
+function getPersonality1(e){
     //resultssection.style.display = "none";
-    console.log(e);
-   /* var resumefile = JSON.stringify(myFile.value);
+    var fileupload = document.getElementById('myFile1').value;
+    console.log(fileupload);
+    var extractor = new WordExtractor();
+    var extracted = extractor.extract('C:/Users/sandeep.murugadas/Desktop/resume1.docx');
+    extracted.then(function(doc) {
+        console.log(doc.getBody());
+       // getPersonality(extracted);
+      });
+    //console.log(extracted)
+   // getPersonality(extracted);
+    var resumefile = JSON.stringify(myFile.value);
     fetch('/api/getProfile',{
         method:'POST',
         body:text
